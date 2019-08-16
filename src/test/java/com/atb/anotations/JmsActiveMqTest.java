@@ -1,28 +1,20 @@
 package com.atb.anotations;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.IOException;
 import java.net.URI;
-
-import javax.jms.JMSException;
+import java.util.logging.Logger;
 
 import org.apache.activemq.broker.BrokerFactory;
 import org.apache.activemq.broker.BrokerService;
-import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import com.atb.config.AppConfig;
-import com.atb.consumer.SpringJmsConsumer;
-import com.atb.producer.SpringJmsProducer;
 
 public class JmsActiveMqTest {
 	
-	private static final Logger LOGGER = Logger.getLogger(JmsActiveMqTest.class);
+	private static final Logger LOGGER = Logger.getLogger("JmsActiveMqTest.class");
 
 	private BrokerService broker;
 	private AbstractApplicationContext context; 
@@ -44,17 +36,16 @@ public class JmsActiveMqTest {
 	
 
 
-	@Test
-	public void sendAndReciveMsg() throws JMSException, IOException {
-		LOGGER.info("Ejecutando JmsActiveMqTest.sendAndReciveMsg()");
-		SpringJmsProducer springJmsProducer = (SpringJmsProducer) context
-				.getBean("springJmsProducer");
-		//springJmsProducer.sendMessage("@tb jms msg ActiveMq");
-		springJmsProducer.sendAllMessages();
-		SpringJmsConsumer springJmsConsumer = (SpringJmsConsumer) context
-				.getBean("springJmsConsumer");
-			assertEquals(springJmsConsumer.receiveMessage(), "msg orig 1 upd");
-	}
+	/*
+	 * @Test public void sendAndReciveMsg() throws JMSException, IOException {
+	 * LOGGER.info("Ejecutando JmsActiveMqTest.sendAndReciveMsg()");
+	 * SpringJmsProducer springJmsProducer = (SpringJmsProducer) context
+	 * .getBean("springJmsProducer");
+	 * //springJmsProducer.sendMessage("@tb jms msg ActiveMq");
+	 * springJmsProducer.sendAllMessages(); SpringJmsConsumer springJmsConsumer =
+	 * (SpringJmsConsumer) context .getBean("springJmsConsumer");
+	 * assertEquals(springJmsConsumer.receiveMessage(), "msg orig 1 upd"); }
+	 */
 	
 /*	@Test
 	public void sendAndReceivePersonMsg() throws JMSException{

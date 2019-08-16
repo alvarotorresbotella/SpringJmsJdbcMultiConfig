@@ -18,7 +18,7 @@ public class PersonDAOImpl implements PersonDAO {
 		this.dataSource = dataSource;
 	}
 
-	@Override
+	
 	public void insertPerson(Person person) {
 		
 		LOGGER.info("PersonDAOImpl.insertPerson");

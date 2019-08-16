@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = "com.atb")
-@Import({JmsConfiguration.class,JbdcConfig.class})
+@Import({JmsConfig.class,JbdcConfig.class,RestConfig.class})
 public class AppConfig {
 	
 }

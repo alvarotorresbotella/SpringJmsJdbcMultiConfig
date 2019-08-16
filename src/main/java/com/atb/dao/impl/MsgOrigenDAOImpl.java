@@ -20,7 +20,7 @@ public class MsgOrigenDAOImpl implements MsgOrigenDAO {
 		this.dataSource = dataSource;
 	}
 	
-	@Override
+	
 	public ArrayList<Msg> getAllMsgs() {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "SELECT * FROM msgorig";
@@ -39,7 +39,7 @@ public class MsgOrigenDAOImpl implements MsgOrigenDAO {
 		return msgList;
 	}
 
-	@Override
+
 	public ArrayList<Msg> getAllPendingMsgs() {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "SELECT * FROM msgorig where status='01'";
@@ -58,7 +58,7 @@ public class MsgOrigenDAOImpl implements MsgOrigenDAO {
 		return msgList;
 	}
 
-	@Override
+
 	public Msg getMsgById(int id) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "SELECT msg,status FROM msgorig WHERE id = ?";
